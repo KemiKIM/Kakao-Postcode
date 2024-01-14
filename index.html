@@ -7,98 +7,96 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2299.7">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px AppleMyungjo; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #ffffff}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #ffffff; min-height: 16.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px AppleMyungjo; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px AppleMyungjo; -webkit-text-stroke: #000000; min-height: 14.0px}
     span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">&lt;html lang="ko"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;head&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;주소 찾기&lt;/title&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8" /&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>name="viewport"</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>content="width=device-width,height=device-height,initial-scale=1.0"</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>/&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/head&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;body onload="execDaumPostcode()"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>id="layer"</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>style="display:block; position:absolute; overflow:hidden; z-index:1; -webkit-overflow-scrolling:touch; "</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"&gt;&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>window.addEventListener("message", onReceivedPostMessage, false);</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>function onReceivedPostMessage(event) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>//..ex deconstruct event into action &amp; params</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>var action = event.data.action;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>var params = event.data.params;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>console.log("onReceivedPostMessage " + event);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>function onReceivedActivityMessageViaJavascriptInterface(json) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>//..ex deconstruct data into action &amp; params</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>var data = JSON.parse(json);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>var action = data.action;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>var params = data.params;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>console.log("onReceivedActivityMessageViaJavascriptInterface " + event);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>function postMessageToiOS(postData) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>window.webkit.messageHandlers.callBackHandler.postMessage(postData);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>var element_layer = document.getElementById("layer");</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>function execDaumPostcode() {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>new daum.Postcode({</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>oncomplete: function (data) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>var jibunAddress = "";</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>if (data.jibunAddress == "") {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">              </span>jibunAddress = data.autoJibunAddress;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>} else if (data.autoJibunAddress == "") {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">              </span>jibunAddress = data.jibunAddress;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>var postData = {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">              </span>roadAddress: data.roadAddress,</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">              </span>jibunAddress: jibunAddress,</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">              </span>zonecode: data.zonecode,</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>window.postMessageToiOS(postData);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>},</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>width: "100%",</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>height: "100%",</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>}).embed(element_layer);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.display = "block";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>initLayerPosition();</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>function initLayerPosition() {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>var width = window.innerWidth || document.documentElement.clientWidth;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>var height =</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>window.innerHeight || document.documentElement.clientHeight;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.width = width + "px";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.height = height + "px";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.left =</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>((window.innerWidth || document.documentElement.clientWidth) -</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>width) /</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>2 +</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>"px";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.top =</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>((window.innerHeight || document.documentElement.clientHeight) -</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>height) /</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>2 +</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>"px";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/body&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;html lang="ko"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;주소 찾기&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>name="viewport"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content="width=device-width,height=device-height,initial-scale=1.0"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;body onload="execDaumPostcode()"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>id="layer"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>style="display:block; position:absolute; overflow:hidden; z-index:1; -webkit-overflow-scrolling:touch; "</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>window.addEventListener("message", onReceivedPostMessage, false);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>function onReceivedPostMessage(event) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>//..ex deconstruct event into action &amp; params</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var action = event.data.action;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var params = event.data.params;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>console.log("onReceivedPostMessage " + event);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>function onReceivedActivityMessageViaJavascriptInterface(json) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>//..ex deconstruct data into action &amp; params</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var data = JSON.parse(json);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var action = data.action;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var params = data.params;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>console.log("onReceivedActivityMessageViaJavascriptInterface " + event);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>function postMessageToiOS(postData) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>window.webkit.messageHandlers.callBackHandler.postMessage(postData);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>var element_layer = document.getElementById("layer");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>function execDaumPostcode() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>new daum.Postcode({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>oncomplete: function (data) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>var jibunAddress = "";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (data.jibunAddress == "") {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>jibunAddress = data.autoJibunAddress;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else if (data.autoJibunAddress == "") {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>jibunAddress = data.jibunAddress;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>var postData = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>roadAddress: data.roadAddress,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>jibunAddress: jibunAddress,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>zonecode: data.zonecode,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.postMessageToiOS(postData);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>width: "100%",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>height: "100%",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}).embed(element_layer);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.display = "block";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>initLayerPosition();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>function initLayerPosition() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var width = window.innerWidth || document.documentElement.clientWidth;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var height =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>window.innerHeight || document.documentElement.clientHeight;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.width = width + "px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.height = height + "px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.left =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>((window.innerWidth || document.documentElement.clientWidth) -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width) /</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>2 +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>"px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>element_layer.style.top =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>((window.innerHeight || document.documentElement.clientHeight) -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height) /</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>2 +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>"px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
 </html>
